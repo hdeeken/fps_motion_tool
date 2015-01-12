@@ -62,7 +62,7 @@ void FPSMotionTool::deactivate()
 // Handling key events to label marked faces or to get db structure
 int FPSMotionTool::processKeyEvent(QKeyEvent *event, rviz::RenderPanel* panel)
 {
-	if(panel->getViewController()->getClassId().toStdString() != "rviz/FPSMotionViewController")
+	if(panel->getViewController()->getClassId().toStdString() != "rviz/FPSMotion")
 	{
 		ROS_WARN("The FPS Motion Tool only works with an active rviz/FPSMotionViewController. \n Guess we need to automatize switching the ViewControllers someday... :D");
 	}
