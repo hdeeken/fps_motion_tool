@@ -2,9 +2,13 @@
 ## This CMakeLists.txt file for rviz_label_tool
 ##
 ## First start with some standard ROS stuff.
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
-rosbuild_init()
+## First start with some standard catkin stuff.
+cmake_minimum_required(VERSION 2.8.3)
+project(rviz_fps_plugin)
+find_package(catkin REQUIRED COMPONENTS rviz)
+catkin_package()
+include_directories(${catkin_INCLUDE_DIRS} include/)
+link_directories(${catkin_LIBRARY_DIRS})
 
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -std=c++0x" )
 
@@ -34,15 +38,15 @@ set(SOURCE_FILES
 )
 
 ## Set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+#set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 # add postgis_control so
 #link_directories(/usr/lib ${postgis_control_PACKAGE_PATH}/lib)
 
 ## An rviz plugin is just a shared library, so here we declare the
 ## library to be called ``${PROJECT_NAME}`` 
-rosbuild_add_library(${PROJECT_NAME} ${SOURCE_FILES})
+add_library(${PROJECT_NAME} ${SOURCE_FILES})
 
 ## Link the library with whatever Qt libraries have been defined by
 ## the ``find_package(Qt4 ...)`` line above.
-target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${catkin_LIBRARIES})

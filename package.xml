@@ -1,0 +1,18 @@
+<package>
+  <name>rviz_fps_plugin</name>
+  <version>0.1.0</version>
+  <description>
+The fps_motion_package contains an additional RViz ViewController and a RViz Tool to navigate RViz like a FPS-Shooter.
+     One can use the 'WASD' keys for walking, and it is possible to walk, run or fly through the scenes.
+</description>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/rviz_fps_plugin</url>
+  <author>hdeeken</author>
+  <maintainer email="todo@todo.com">Fabian Sch&#xF6;nert</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rviz</build_depend>
+  <run_depend>rviz</run_depend>
+  <export>
+    <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>
